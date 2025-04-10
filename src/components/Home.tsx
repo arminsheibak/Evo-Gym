@@ -24,7 +24,6 @@ const Home = ({ setSelectedPage }: Props) => {
         <div className="z-10 mt-32 md:basis-3/5">
           {/* Heading */}
           <motion.div
-            className="md:-mt-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -71,7 +70,7 @@ const Home = ({ setSelectedPage }: Props) => {
         </div>
 
         {/* Image */}
-        <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 ">
+        <div className="flex basis-3/5 justify-center mt-13 md:z-10 md:ml-40 ">
           <img src={HomePageGraphic} alt="home-page-graphic" />
         </div>
       </motion.div>
