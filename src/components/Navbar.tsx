@@ -13,14 +13,14 @@ interface Props {
 const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const flexBetween = "flex justify-between items-center";
-  const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+  const navbarBackground = isTopOfPage ? "bg-gray-20" : "bg-primary-100 drop-shadow";
 
   return (
     <nav>
       <div className={`${navbarBackground} ${flexBetween} fixed top-0 left-0 z-30 w-full py-6`}>
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <img src={logo} alt="logo" />
-          <div className={`hidden md:${flexBetween} gap-8 text-md`}>
+          <div className={`hidden md:flex justify-between items-center gap-8 text-md`}>
             <Link
               href="Home"
               selectedPage={selectedPage}
