@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Heading from "./Heading";
 import ContactUsPageGraphic from "../assets/ContactUsPageGraphic.png";
-import Evolve from "../assets/EvolveText.png"
+import Evolve from "../assets/EvolveText.png";
 import { useForm } from "react-hook-form";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ContactUs = ({ setSelectedPage }: Props) => {
-  const inputStyles = `mb-5 w-full rounded-lg bg-primary-300
+  const inputStyles = `w-full rounded-lg bg-primary-300
   px-5 py-3 placeholder-white`;
   const {
     register,
@@ -61,67 +61,73 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               onSubmit={OnSubmit}
               action={"https://formsubmit.co/f84e778c35993a82e94d6f036cf8eddc "}
               method="POST"
-            > <input
-            className={inputStyles}
-            type="text"
-            placeholder="NAME"
-            {...register("name", {
-              required: true,
-              maxLength: 100,
-            })}
-          />
-          {errors.name && (
-            <p className="mt-1 text-primary-500">
-              {errors.name.type === "required" && "This field is required."}
-              {errors.name.type === "maxLength" &&
-                "Max length is 100 char."}
-            </p>
-          )}
+            >
+              <div className="mb-5 ">
+                <input
+                  className={inputStyles}
+                  type="text"
+                  placeholder="NAME"
+                  {...register("name", {
+                    required: true,
+                    maxLength: 100,
+                  })}
+                />
+                {errors.name && (
+                  <p className="text-primary-500">
+                    {errors.name.type === "required" &&
+                      "This field is required."}
+                    {errors.name.type === "maxLength" &&
+                      "Max length is 100 char."}
+                  </p>
+                )}
+              </div>
 
-          <input
-            className={inputStyles}
-            type="text"
-            placeholder="EMAIL"
-            {...register("email", {
-              required: true,
-              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            })}
-          />
-          {errors.email && (
-            <p className="mt-1 text-primary-500">
-              {errors.email.type === "required" &&
-                "This field is required."}
-              {errors.email.type === "pattern" && "Invalid email address."}
-            </p>
-          )}
+              <div className="mb-5">
+                <input
+                  className={inputStyles}
+                  type="text"
+                  placeholder="EMAIL"
+                  {...register("email", {
+                    required: true,
+                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  })}
+                />
+                {errors.email && (
+                  <p className="text-primary-500">
+                    {errors.email.type === "required" &&
+                      "This field is required."}
+                    {errors.email.type === "pattern" &&
+                      "Invalid email address."}
+                  </p>
+                )}
+              </div>
+              <div className="mb-5">
+                <textarea
+                  className={inputStyles}
+                  placeholder="MESSAGE"
+                  rows={4}
+                  cols={50}
+                  {...register("message", {
+                    required: true,
+                    maxLength: 2000,
+                  })}
+                />
+                {errors.message && (
+                  <p className="text-primary-500">
+                    {errors.message.type === "required" &&
+                      "This field is required."}
+                    {errors.message.type === "maxLength" &&
+                      "Max length is 2000 char."}
+                  </p>
+                )}
+              </div>
 
-          <textarea
-            className={inputStyles}
-            placeholder="MESSAGE"
-            rows={4}
-            cols={50}
-            {...register("message", {
-              required: true,
-              maxLength: 2000,
-            })}
-          />
-          {errors.message && (
-            <p className="mt-1 text-primary-500">
-              {errors.message.type === "required" &&
-                "This field is required."}
-              {errors.message.type === "maxLength" &&
-                "Max length is 2000 char."}
-            </p>
-          )}
-
-          <button
-            type="submit"
-            className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
-          >
-            SUBMIT
-          </button>
-
-
+              <button
+                type="submit"
+                className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+              >
+                SUBMIT
+              </button>
             </form>
           </motion.div>
           <motion.div
@@ -137,14 +143,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           >
             <div className="hidden md:flex w-full absolute -bottom-23 right-20 z-[-1]">
               <img src={Evolve} />
-              </div>
-              <img
-                className="w-full md:-mt-40 "
-                alt="contact-us-page-graphic"
-                src={ContactUsPageGraphic}
-              />
+            </div>
+            <img
+              className="w-full md:-mt-40 "
+              alt="contact-us-page-graphic"
+              src={ContactUsPageGraphic}
+            />
           </motion.div>
-                  </div>
+        </div>
       </motion.div>
     </section>
   );
